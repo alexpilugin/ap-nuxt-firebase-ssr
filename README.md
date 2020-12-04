@@ -13,4 +13,7 @@ $ npm init nuxt-app src
 # To get started
 $ cd src
 $ npm run dev
+
+# Create two extra folders: public and server
+$ mkdir public && mkdir server
 ```
