@@ -16,4 +16,9 @@ $ npm run dev
 
 # Create two extra folders: public and server
 $ mkdir public && mkdir server
+
+# Firebase Project Initialization
+$ firebase logout
+$ firebase login
+$ firebase init
 ```
