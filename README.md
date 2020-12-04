@@ -21,4 +21,8 @@ $ mkdir public && mkdir server
 $ firebase logout
 $ firebase login
 $ firebase init
+
+# Create a package.json file in the root folder
+# Adding scripts which will run from a root folder
+$ npm init
 ```

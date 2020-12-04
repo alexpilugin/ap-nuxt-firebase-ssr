@@ -1,0 +1,33 @@
+{
+  "name": "ap-nuxt-firebase-ssr",
+  "version": "1.0.0",
+  "description": "Nuxt Server-Side Rendering (SSR) Project on Firebase",
+  "scripts": {
+    "setup:client": "cd \"src\" && npm i",
+    "setup:firebase": "cp .setup-firebaserc .firebaserc",
+    "setup": "npm i && npm run setup:firebase && npm run setup:client",
+    "dev": "cd ./src && npm run dev",
+    "build": "cd ./src && npm run build",
+    "copyassets": "rm -rf server/.nuxt && npm --prefix src run build && mkdir -p server/.nuxt/dist && cp -r src/.nuxt/dist/ server/.nuxt/dist && cp src/nuxt.config.js server/",
+    "copystatic": "rm -rf public/* && mkdir -p public/nuxt && cp -r server/.nuxt/dist/client/ public/nuxt && cp -a src/static/. public/",
+    "pre:deploy": "npm run copyassets && npm run copystatic",
+    "deploy": "firebase deploy",
+    "firebase:serve": "npm run build && npm run serve",
+    "serve": "cross-env DEBUG=nuxt:*  firebase serve --only hosting,functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexpilugin/ap-nuxt-firebase-ssr.git"
+  },
+  "keywords": [
+    "nuxt.js",
+    "firebase",
+    "ssr"
+  ],
+  "author": "Alex Pilugin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexpilugin/ap-nuxt-firebase-ssr/issues"
+  },
+  "homepage": "https://github.com/alexpilugin/ap-nuxt-firebase-ssr#readme"
+}
