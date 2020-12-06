@@ -1,5 +1,7 @@
 # ap-nuxt-firebase-ssr
 
+## Online Demo [https://ap-nuxt-firebase-ssr.web.app/](https://ap-nuxt-firebase-ssr.web.app/)
+
 This is a Nuxt SSR (Server-Side Rendering) web application for Google Firebase.
 I am going to use it as an initial template for other Nuxt SSR projects with Firebase.
 
@@ -41,6 +43,9 @@ firebase deploy
 
 ## Manual Project Scaffolding from scratch
 
+In order to understand next steps you can watch youtube video from Firebase:     
+[![Server-Side Render Vue Apps with Nuxt.js](https://img.youtube.com/vi/ZYUWsjUxxUQ/0.jpg)](https://www.youtube.com/watch?v=ZYUWsjUxxUQ)
+
 ```
 # Make an empty project folder
 $ mkdir <project-name>
@@ -65,4 +70,25 @@ $ firebase init
 $ npm init
 
 # install the same dependencies... etc
+
+# For production remove @nuxtjs/eslint-module from buildModules in nuxt.config.js
+  buildModules: [
+    // https://github.com/nuxt-community/eslint-module#readme
+    //'@nuxtjs/eslint-module'
+  ],
 ```
+
+## Hint. If you accidently use git in a root folder and in a subfolder
+[How to delete git repository created with init](https://stackoverflow.com/questions/1213430/how-to-fully-delete-a-git-repository-created-with-init)
+
+### For Mac OS
+```
+$ cd <nested folder>
+
+# Show hidden files
+$ ls -a
+
+# Delete .git folder
+```
+
+**To show hidden files in Finder: ```CMD + SHIFT + .```**
