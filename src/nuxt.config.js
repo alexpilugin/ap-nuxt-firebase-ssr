@@ -38,7 +38,14 @@ module.exports = {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    [
+      '@nuxtjs/component-cache',
+      {
+        max: 10000,
+        maxAge: 1000 * 60 * 60
+      }
+    ]
   ],
 
   /* @nuxtjs/eslint-module configuration (https://eslint.org/docs/2.13.1/user-guide/configuring)
@@ -54,10 +61,19 @@ module.exports = {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  //issue: Nuxt is really slow: https://github.com/nuxt/nuxt.js/issues/6508
+  vueMeta: {
+    debounceWait: 250
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   buildDir: '.nuxt',
   build: {
-    extractCSS: true,
+    parallel: true,
+    cache: true,
+    //extractCSS: process.env.NODE_ENV === 'production',
+    //optimizeCSS: process.env.NODE_ENV === 'production',
+    transpile: ['vue-intersect'],
     publicPath: '/assets/',
     //https://github.com/nuxt/nuxt.js/issues/3828#issuecomment-508428611
     filenames: {
@@ -66,7 +82,7 @@ module.exports = {
     },
     babel: {
       presets({ isServer }) {
-        let targets = isServer ? { node: '10' } : { ie: '11' }
+        let targets = isServer ? { node: '12' } : { ie: '11' }
         return [
           [ require.resolve('@nuxt/babel-preset-app'), 
             { 
