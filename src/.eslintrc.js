@@ -13,6 +13,16 @@ module.exports = {
   ],
   plugins: [
   ],
+  overrides: [
+    {
+      files: [
+        '**/*.spec.js'
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ],
   // add your custom rules here
   rules: {}
 }

@@ -30,7 +30,7 @@ module.exports = {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://github.com/nuxt-community/eslint-module#readme
-    '@nuxtjs/eslint-module'
+    //'@nuxtjs/eslint-module'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -41,14 +41,15 @@ module.exports = {
     '@nuxtjs/pwa'
   ],
 
-  // @nuxtjs/eslint-module configuration (https://eslint.org/docs/2.13.1/user-guide/configuring)
+  /* @nuxtjs/eslint-module configuration (https://eslint.org/docs/2.13.1/user-guide/configuring)
+  // the same as in .eslintrc.js file
   eslint: {
-    /* module options */
     "env": {
       "browser": true,
-      "node": false
+      "node": true
     }
   },
+  */
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
