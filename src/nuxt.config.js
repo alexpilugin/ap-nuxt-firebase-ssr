@@ -1,6 +1,8 @@
+/* eslint-disable */
 module.exports = {
   ssr: true,
   ssrLog: true,
+  dev: process.env.NODE_ENV !== 'production',
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'ap-nuxt-firebase-ssr',
@@ -27,7 +29,7 @@ module.exports = {
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
+    // https://github.com/nuxt-community/eslint-module#readme
     '@nuxtjs/eslint-module'
   ],
 
@@ -38,6 +40,15 @@ module.exports = {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa'
   ],
+
+  // @nuxtjs/eslint-module configuration (https://eslint.org/docs/2.13.1/user-guide/configuring)
+  eslint: {
+    /* module options */
+    "env": {
+      "browser": true,
+      "node": false
+    }
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
